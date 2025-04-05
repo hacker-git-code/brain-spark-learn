@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -52,15 +53,42 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				sidebar: {
-					DEFAULT: 'hsl(var(--sidebar-background))',
-					foreground: 'hsl(var(--sidebar-foreground))',
-					primary: 'hsl(var(--sidebar-primary))',
-					'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-					accent: 'hsl(var(--sidebar-accent))',
-					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
-					border: 'hsl(var(--sidebar-border))',
-					ring: 'hsl(var(--sidebar-ring))'
+				
+				// BrainLearn custom colors
+				math: {
+					DEFAULT: '#4361ee',
+					light: '#617afb',
+					dark: '#2d49d1'
+				},
+				science: {
+					DEFAULT: '#3a0ca3',
+					light: '#4b21b3',
+					dark: '#2a0979'
+				},
+				language: {
+					DEFAULT: '#7209b7',
+					light: '#8421c5',
+					dark: '#5c0790'
+				},
+				history: {
+					DEFAULT: '#f72585',
+					light: '#f84d9b',
+					dark: '#e80d6e'
+				},
+				arts: {
+					DEFAULT: '#4cc9f0',
+					light: '#70d4f3',
+					dark: '#22bcec'
+				},
+				technology: {
+					DEFAULT: '#4d908e',
+					light: '#61a5a3',
+					dark: '#3d7472'
+				},
+				brain: {
+					DEFAULT: '#f8f9fa',
+					dark: '#e9ecef',
+					darker: '#dee2e6'
 				}
 			},
 			borderRadius: {
@@ -84,11 +112,41 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'pulse-gentle': {
+					'0%, 100%': { transform: 'scale(1)' },
+					'50%': { transform: 'scale(1.05)' }
+				},
+				'float': {
+					'0%, 100%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-10px)' }
+				},
+				'glow': {
+					'0%, 100%': { filter: 'brightness(1)' },
+					'50%': { filter: 'brightness(1.2)' }
+				},
+				'fade-in': {
+					'0%': { opacity: '0' },
+					'100%': { opacity: '1' }
+				},
+				'fade-in-up': {
+					'0%': { opacity: '0', transform: 'translateY(20px)' },
+					'100%': { opacity: '1', transform: 'translateY(0)' }
+				},
+				'expand': {
+					'0%': { transform: 'scale(0.8)', opacity: '0' },
+					'100%': { transform: 'scale(1)', opacity: '1' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'pulse-gentle': 'pulse-gentle 3s ease-in-out infinite',
+				'float': 'float 6s ease-in-out infinite',
+				'glow': 'glow 2s ease-in-out infinite',
+				'fade-in': 'fade-in 0.5s ease-out',
+				'fade-in-up': 'fade-in-up 0.5s ease-out',
+				'expand': 'expand 0.3s ease-out'
 			}
 		}
 	},
