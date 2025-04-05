@@ -56,17 +56,91 @@ const BrainMap: React.FC<BrainMapProps> = ({ onNodeClick }) => {
           isHovered ? "scale-105" : "scale-100"
         )}
       >
-        {/* Circular brain outline */}
-        <ellipse
-          cx={width / 2}
-          cy={height / 2}
-          rx={200}
-          ry={170}
-          fill="url(#brainGradient)"
-          stroke="#dee2e6"
-          strokeWidth="2"
-          className="opacity-70"
-        />
+        {/* Brain structure instead of circular outline */}
+        <g className="brain-structure">
+          {/* Left hemisphere */}
+          <path
+            d="M250,80 C180,80 120,120 100,180 C80,240 90,300 120,350 C150,400 200,420 250,420"
+            fill="url(#leftHemisphereGradient)"
+            stroke="#dee2e6"
+            strokeWidth="2"
+            className="opacity-70"
+          />
+          
+          {/* Right hemisphere */}
+          <path
+            d="M250,80 C320,80 380,120 400,180 C420,240 410,300 380,350 C350,400 300,420 250,420"
+            fill="url(#rightHemisphereGradient)"
+            stroke="#dee2e6"
+            strokeWidth="2"
+            className="opacity-70"
+          />
+          
+          {/* Corpus callosum (connecting the hemispheres) */}
+          <path
+            d="M250,100 C270,90 280,90 300,100 C280,110 270,110 250,100"
+            fill="#e9ecef"
+            className="opacity-50"
+          />
+          
+          {/* Brain stem */}
+          <path
+            d="M235,420 C240,440 260,440 265,420"
+            fill="#dee2e6"
+            stroke="#dee2e6"
+            strokeWidth="1"
+            className="opacity-70"
+          />
+
+          {/* Brain folds and details */}
+          <path
+            d="M120,180 C140,170 160,190 180,180 C200,170 220,190 240,180"
+            fill="none"
+            stroke="#dee2e6"
+            strokeWidth="1"
+            className="opacity-50"
+          />
+          
+          <path
+            d="M260,180 C280,170 300,190 320,180 C340,170 360,190 380,180"
+            fill="none"
+            stroke="#dee2e6"
+            strokeWidth="1"
+            className="opacity-50"
+          />
+          
+          <path
+            d="M120,250 C140,240 160,260 180,250 C200,240 220,260 240,250"
+            fill="none"
+            stroke="#dee2e6"
+            strokeWidth="1"
+            className="opacity-50"
+          />
+          
+          <path
+            d="M260,250 C280,240 300,260 320,250 C340,240 360,260 380,250"
+            fill="none"
+            stroke="#dee2e6"
+            strokeWidth="1"
+            className="opacity-50"
+          />
+          
+          <path
+            d="M120,320 C140,310 160,330 180,320 C200,310 220,330 240,320"
+            fill="none"
+            stroke="#dee2e6"
+            strokeWidth="1"
+            className="opacity-50"
+          />
+          
+          <path
+            d="M260,320 C280,310 300,330 320,320 C340,310 360,330 380,320"
+            fill="none"
+            stroke="#dee2e6"
+            strokeWidth="1"
+            className="opacity-50"
+          />
+        </g>
         
         {/* Neural network connections */}
         {connections.map((conn) => (
@@ -98,7 +172,13 @@ const BrainMap: React.FC<BrainMapProps> = ({ onNodeClick }) => {
 
         {/* Gradient definitions */}
         <defs>
-          <radialGradient id="brainGradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+          <radialGradient id="leftHemisphereGradient" cx="30%" cy="50%" r="70%" fx="30%" fy="50%">
+            <stop offset="0%" stopColor="#f8f9fa" />
+            <stop offset="70%" stopColor="#e9ecef" />
+            <stop offset="100%" stopColor="#dee2e6" />
+          </radialGradient>
+          
+          <radialGradient id="rightHemisphereGradient" cx="70%" cy="50%" r="70%" fx="70%" fy="50%">
             <stop offset="0%" stopColor="#f8f9fa" />
             <stop offset="70%" stopColor="#e9ecef" />
             <stop offset="100%" stopColor="#dee2e6" />
