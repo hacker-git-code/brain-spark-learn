@@ -82,6 +82,7 @@
 .neural-paths {
   stroke-dasharray: 10;
   animation: dash 30s linear infinite;
+  filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.3));
 }
 
 @keyframes dash {
@@ -94,6 +95,7 @@
 .brain-connection {
   stroke-dasharray: 5;
   animation: connection-dash 20s linear infinite;
+  filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.2));
 }
 
 @keyframes connection-dash {
@@ -105,10 +107,33 @@
 /* Brain structure animations */
 .brain-structure path {
   transition: all 0.5s ease-out;
+  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.1));
 }
 
 .brain-structure:hover path {
   stroke-width: 2.5;
+  filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.3));
+}
+
+/* Abstract brain effects */
+.brain-structure {
+  animation: subtle-pulse 10s infinite alternate ease-in-out;
+}
+
+@keyframes subtle-pulse {
+  0% {
+    opacity: 0.8;
+    filter: saturate(90%);
+  }
+  100% {
+    opacity: 1;
+    filter: saturate(110%);
+  }
+}
+
+/* Neural network nodes */
+.neural-network circle {
+  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.5));
 }
 
 /* Neuron pulse animation */
@@ -127,8 +152,28 @@
   }
 }
 
+/* More dynamic pulse for subject nodes */
+@keyframes pulse-glow {
+  0% {
+    transform: scale(1);
+    filter: brightness(1);
+  }
+  50% {
+    transform: scale(1.08);
+    filter: brightness(1.2) drop-shadow(0 0 5px rgba(255, 255, 255, 0.3));
+  }
+  100% {
+    transform: scale(1);
+    filter: brightness(1);
+  }
+}
+
 .animate-pulse-gentle {
   animation: pulse-gentle 2s infinite ease-in-out;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s infinite ease-in-out;
 }
 
 /* Custom scrollbar */

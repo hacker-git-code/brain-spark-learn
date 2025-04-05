@@ -56,93 +56,169 @@ const BrainMap: React.FC<BrainMapProps> = ({ onNodeClick }) => {
           isHovered ? "scale-105" : "scale-100"
         )}
       >
-        {/* Brain structure instead of circular outline */}
+        {/* Enhanced brain structure with more internal details */}
         <g className="brain-structure">
-          {/* Left hemisphere */}
+          {/* Background brain shape */}
           <path
-            d="M250,80 C180,80 120,120 100,180 C80,240 90,300 120,350 C150,400 200,420 250,420"
-            fill="url(#leftHemisphereGradient)"
+            d="M250,60 C350,60 420,120 440,200 C460,280 420,360 370,400 C320,440 280,450 250,450 C220,450 180,440 130,400 C80,360 40,280 60,200 C80,120 150,60 250,60Z"
+            fill="url(#brainGradient)"
             stroke="#dee2e6"
-            strokeWidth="2"
-            className="opacity-70"
+            strokeWidth="1.5"
+            className="opacity-60"
           />
           
-          {/* Right hemisphere */}
+          {/* Left hemisphere detailed structure */}
+          <path
+            d="M250,80 C180,80 120,120 100,180 C80,240 90,300 120,350 C150,400 200,420 250,420"
+            fill="none"
+            stroke="#e9ecef"
+            strokeWidth="1.5"
+            className="opacity-50"
+          />
+          
+          {/* Right hemisphere detailed structure */}
           <path
             d="M250,80 C320,80 380,120 400,180 C420,240 410,300 380,350 C350,400 300,420 250,420"
-            fill="url(#rightHemisphereGradient)"
-            stroke="#dee2e6"
-            strokeWidth="2"
-            className="opacity-70"
+            fill="none"
+            stroke="#e9ecef"
+            strokeWidth="1.5"
+            className="opacity-50"
           />
           
           {/* Corpus callosum (connecting the hemispheres) */}
           <path
-            d="M250,100 C270,90 280,90 300,100 C280,110 270,110 250,100"
+            d="M250,100 C270,90 280,90 300,100 C280,110 270,110 250,100Z"
             fill="#e9ecef"
-            className="opacity-50"
-          />
-          
-          {/* Brain stem */}
-          <path
-            d="M235,420 C240,440 260,440 265,420"
-            fill="#dee2e6"
             stroke="#dee2e6"
             strokeWidth="1"
-            className="opacity-70"
+            className="opacity-40"
           />
-
-          {/* Brain folds and details */}
+          
+          {/* Brain internal structures - gyri and sulci patterns */}
           <path
             d="M120,180 C140,170 160,190 180,180 C200,170 220,190 240,180"
             fill="none"
-            stroke="#dee2e6"
+            stroke="#e9ecef"
             strokeWidth="1"
-            className="opacity-50"
+            className="opacity-60"
           />
           
           <path
             d="M260,180 C280,170 300,190 320,180 C340,170 360,190 380,180"
             fill="none"
-            stroke="#dee2e6"
+            stroke="#e9ecef"
             strokeWidth="1"
-            className="opacity-50"
+            className="opacity-60"
           />
           
           <path
             d="M120,250 C140,240 160,260 180,250 C200,240 220,260 240,250"
             fill="none"
-            stroke="#dee2e6"
+            stroke="#e9ecef"
             strokeWidth="1"
-            className="opacity-50"
+            className="opacity-60"
           />
           
           <path
             d="M260,250 C280,240 300,260 320,250 C340,240 360,260 380,250"
             fill="none"
-            stroke="#dee2e6"
+            stroke="#e9ecef"
             strokeWidth="1"
-            className="opacity-50"
+            className="opacity-60"
           />
           
           <path
             d="M120,320 C140,310 160,330 180,320 C200,310 220,330 240,320"
             fill="none"
-            stroke="#dee2e6"
+            stroke="#e9ecef"
             strokeWidth="1"
-            className="opacity-50"
+            className="opacity-60"
           />
           
           <path
             d="M260,320 C280,310 300,330 320,320 C340,310 360,330 380,320"
             fill="none"
-            stroke="#dee2e6"
+            stroke="#e9ecef"
+            strokeWidth="1"
+            className="opacity-60"
+          />
+          
+          {/* Additional brain internal structures */}
+          <path
+            d="M150,150 C170,130 200,150 220,130 C240,110 260,130 280,110"
+            fill="none"
+            stroke="#e9ecef"
             strokeWidth="1"
             className="opacity-50"
           />
+          
+          <path
+            d="M280,110 C300,90 320,110 340,90 C360,70 380,90 400,70"
+            fill="none"
+            stroke="#e9ecef"
+            strokeWidth="1"
+            className="opacity-50"
+          />
+          
+          <path
+            d="M150,350 C170,370 200,350 220,370 C240,390 260,370 280,390"
+            fill="none"
+            stroke="#e9ecef"
+            strokeWidth="1"
+            className="opacity-50"
+          />
+          
+          <path
+            d="M280,390 C300,410 320,390 340,410 C360,430 380,410 400,430"
+            fill="none"
+            stroke="#e9ecef"
+            strokeWidth="1"
+            className="opacity-50"
+          />
+          
+          {/* Brain cortex textures - abstract patterns */}
+          {Array.from({ length: 8 }).map((_, i) => (
+            <path
+              key={`left-texture-${i}`}
+              d={`M${120 + i * 15},${150 + i * 20} C${140 + i * 10},${130 + i * 20} ${160 + i * 10},${170 + i * 15} ${180 + i * 5},${150 + i * 20}`}
+              fill="none"
+              stroke="#e9ecef"
+              strokeWidth="0.7"
+              strokeOpacity={0.3 + i * 0.05}
+              className="opacity-30"
+            />
+          ))}
+          
+          {Array.from({ length: 8 }).map((_, i) => (
+            <path
+              key={`right-texture-${i}`}
+              d={`M${320 - i * 15},${150 + i * 20} C${340 - i * 10},${130 + i * 20} ${360 - i * 10},${170 + i * 15} ${380 - i * 5},${150 + i * 20}`}
+              fill="none"
+              stroke="#e9ecef"
+              strokeWidth="0.7"
+              strokeOpacity={0.3 + i * 0.05}
+              className="opacity-30"
+            />
+          ))}
+          
+          {/* Abstract neural network patterns */}
+          <g className="neural-network">
+            {Array.from({ length: 12 }).map((_, i) => (
+              <circle
+                key={`neuron-${i}`}
+                cx={100 + Math.random() * 300}
+                cy={100 + Math.random() * 250}
+                r={1 + Math.random() * 2}
+                fill="#ffffff"
+                fillOpacity={0.4 + Math.random() * 0.4}
+                className="animate-pulse-gentle"
+                style={{ animationDelay: `${i * 0.2}s` }}
+              />
+            ))}
+          </g>
         </g>
         
-        {/* Neural network connections */}
+        {/* Enhanced neural connections with pulsing effect */}
         {connections.map((conn) => (
           <line
             key={conn.id}
@@ -152,8 +228,21 @@ const BrainMap: React.FC<BrainMapProps> = ({ onNodeClick }) => {
             y2={conn.y2}
             stroke="#cbd5e1"
             strokeWidth="1"
-            strokeOpacity="0.5"
+            strokeOpacity="0.6"
             className="brain-connection"
+          />
+        ))}
+        
+        {/* Additional abstract connection paths */}
+        {subjects.map((subject, i) => (
+          <path
+            key={`abstract-path-${i}`}
+            d={`M${subject.x},${subject.y} Q${subject.x + (Math.random() * 40 - 20)},${subject.y + (Math.random() * 40 - 20)} ${250},${225}`}
+            stroke={subject.color}
+            strokeWidth="1"
+            strokeOpacity="0.3"
+            fill="none"
+            className="neural-paths"
           />
         ))}
 
@@ -172,6 +261,12 @@ const BrainMap: React.FC<BrainMapProps> = ({ onNodeClick }) => {
 
         {/* Gradient definitions */}
         <defs>
+          <radialGradient id="brainGradient" cx="50%" cy="50%" r="75%" fx="50%" fy="50%">
+            <stop offset="0%" stopColor="#f8f9fa" stopOpacity="0.7" />
+            <stop offset="70%" stopColor="#e9ecef" stopOpacity="0.5" />
+            <stop offset="100%" stopColor="#dee2e6" stopOpacity="0.3" />
+          </radialGradient>
+          
           <radialGradient id="leftHemisphereGradient" cx="30%" cy="50%" r="70%" fx="30%" fy="50%">
             <stop offset="0%" stopColor="#f8f9fa" />
             <stop offset="70%" stopColor="#e9ecef" />
